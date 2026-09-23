@@ -1,0 +1,19 @@
+# Milestone 1: one end-to-end call, fully logged.
+# Goal: prove the plumbing works, not measure anything.
+id: m1-smoke
+hypothesis: hypotheses/001-smoke.md
+stage: generate
+
+backend: lmstudio
+model: qwen/qwen3.5-9b          # use the exact identifier LM Studio shows
+weights_path: null              # optional: path to model file/dir to hash into the manifest
+
+prompts: data/prompts/smoke.jsonl
+
+sampling:
+  temperature: 0.0
+  max_tokens: 256
+  seed: 1234
+
+# Backend-specific extras passed straight through (e.g. disabling a thinking mode).
+extra_body: {}

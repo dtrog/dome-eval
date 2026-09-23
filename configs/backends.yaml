@@ -1,0 +1,28 @@
+# Every backend speaks the OpenAI-compatible chat API.
+# Experiment code only refers to backends by name.
+#
+# api_key_env: name of the environment variable holding the key (omit for local servers).
+# kind: local | cloud  (cloud runs are flagged in the manifest; keep sensitive data local)
+
+lmstudio:
+  base_url: http://localhost:1234/v1
+  kind: local
+  node: m1-macbook
+
+llamacpp-pi:
+  # llama-server -m model.gguf --host 0.0.0.0 --port 8080
+  base_url: http://raspberrypi.local:8080/v1
+  kind: local
+  node: rpi5
+
+openrouter:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY
+  kind: cloud
+  node: openrouter
+
+deepseek:
+  base_url: https://api.deepseek.com/v1
+  api_key_env: sk-d9657852705b4bbd9958ea8426a8388d
+  kind: cloud
+  node: deepseek

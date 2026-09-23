@@ -1,0 +1,29 @@
+# DRAFT — Milestone 2 pilot. Not runnable yet: the judge stage is still a stub.
+# Kept here so the design is written down before the code exists.
+id: m2-pilot
+hypothesis: hypotheses/002-pilot.md
+
+generate:
+  backend: lmstudio
+  model: qwen/qwen3.5-9b
+  prompts:
+    adversarial: data/prompts/adversarial.jsonl   # from a public benchmark, ~50
+    benign: data/prompts/benign_impressive.jsonl  # own set, ~50
+  sampling: {temperature: 0.0, max_tokens: 512, seed: 1234}
+
+judges:
+  - name: guardian-builtin
+    backend: lmstudio
+    model: ibm-granite/granite-guardian-4.1-8b
+    mode: builtin
+    risks: [harm, jailbreak, groundedness]
+  - name: guardian-byoc
+    backend: lmstudio
+    model: ibm-granite/granite-guardian-4.1-8b
+    mode: byoc
+    criteria: criteria/v0.1/
+  - name: ministral-byoc
+    backend: lmstudio
+    model: mistralai/ministral-3-3b
+    mode: byoc
+    criteria: criteria/v0.1/     # identical criteria text: isolates model from criteria
