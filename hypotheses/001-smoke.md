@@ -6,6 +6,8 @@
 Does a full run (config → backend → JSONL → manifest) work end to end?
 
 ## Prediction
+Yes
+
 Three records, no errors, manifest with git commit and config hash.
 
 ## What would change my mind
