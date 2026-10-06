@@ -23,6 +23,6 @@ openrouter:
 
 deepseek:
   base_url: https://api.deepseek.com/v1
-  api_key_env: sk-d9657852705b4bbd9958ea8426a8388d
+  api_key_env: DEEPSEEK_API_KEY
   kind: cloud
   node: deepseek

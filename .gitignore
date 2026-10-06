@@ -1,1 +1,6 @@
 .DS_Store
+.env
+.venv/
+runs/
+__pycache__/
+uv.lock
